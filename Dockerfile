@@ -44,7 +44,7 @@ LABEL org.opencontainers.image.source https://github.com/qovery/replibyte
 # Install Postgres and MySQL binaries
 RUN apt-get clean && apt-get update && apt-get install -y wget postgresql-client default-mysql-client
 # Install MongoDB tools
-RUN wget https://fastdl.mongodb.org/tools/db/mongodb-database-tools-debian92-x86_64-100.5.2.deb && apt ./mongodb-database-tools-*.deb && rm -f mongodb-database-tools-*.deb && rm -rf /var/lib/apt/lists/*
+RUN wget https://fastdl.mongodb.org/tools/db/mongodb-database-tools-debian92-x86_64-100.5.2.deb && apt install ./mongodb-database-tools-*.deb && rm -f mongodb-database-tools-*.deb && rm -rf /var/lib/apt/lists/*
 
 # copy the build artifact from the build stage
 COPY --from=build /replibyte/target/release/replibyte .
